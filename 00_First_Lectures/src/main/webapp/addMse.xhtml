@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Keep It Simple &amp; Stupid</title>
+	<h:outputStylesheet library="webjars" name="bootstrap/4.3.1/css/bootstrap.min.css" />
+</h:head>
+
+<h:body>
+	<h:outputScript library="webjars" name="bootstrap/4.3.1/js/bootstrap.min.js" />
+<f:view>
+<h:form>
+
+<!--	<ui:include src="nav.xhtml" />-->
+
+	[ <a href="#{facesContext.externalContext.applicationContextPath}/faces/all.xhtml">All</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addSkupnost.xhtml?mail=NULL"> Add Skupnost</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/editSkupnost.xhtml"> Edit Skupnost</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addOseba.xhtml?mail=NULL"> Add Oseba</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addMse.xhtml?mail=NULL"> Add MSE</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/detailsMSE.xhtml?mail=NULL"> Details MSE</a>
+	]
+	<hr />
+	<f:metadata>
+		<f:viewParam name="mail" value="#{mseBEAN.selectedID}" />
+	</f:metadata>
+
+	<h2>Insert/Edit MSE:</h2>
+
+	<h3>Location Data:</h3>
+	Usage (kW): <h:inputText value="#{mseBEAN.selectedMse.zmogljivost}" /><br/>
+	Longitude: <h:inputText value="#{mseBEAN.selectedMse.lokacija.x}" /><br/>
+	Latitude: <h:inputText value="#{mseBEAN.selectedMse.lokacija.y}"  /><br/>
+<!--	<h:selectOneMenu value="#{oseba.selectedPerson}" id="selectedPerson">-->
+<!--		<f:selectItems value="#{oseba.getAllPeople()}" var="person" itemLabel="#{oseba.selectedPerson.ime} #{oseba.selectedPerson.priimek} #{oseba.selectedPerson.mail}" itemValue="#{oseba}" />-->
+<!--	</h:selectOneMenu>-->
+	<br/>
+
+	<h3>Owner Data:</h3>
+	Name: <h:inputText value="#{mseBEAN.selectedMse.oseba.ime}" /><br/>
+	Surname: <h:inputText value="#{mseBEAN.selectedMse.oseba.priimek}" /><br/>
+	Email: <h:inputText value="#{mseBEAN.selectedMse.oseba.mail}" /><br/>
+
+	<br/>
+	<h3>MSE Data:</h3>
+	<div class="field col-12 md:col-4">
+		<p:outputLabel for="buttonbar" value="Datum Vgradnje: " />
+		<p:datePicker id="buttonbar" value="#{mseBEAN.selectedMse.vgradnja}"	showButtonBar="true" />
+	</div>
+	<div class="field col-12 md:col-4">
+		<p:outputLabel for="buttonbar" value="Datum Pregleda: " />
+		<p:datePicker id="buttonbar1" value="#{mseBEAN.selectedMse.zadnjiPregled}"	showButtonBar="true" />
+	</div>
+	<div class="field col-12 md:col-4">
+		<p:outputLabel for="buttonbar" value="Datum Servisa: " />
+		<p:datePicker id="buttonbar2" value="#{mseBEAN.selectedMse.zadnjiServis}"	showButtonBar="true" />
+	</div>
+
+
+
+
+
+	<h:commandButton value="DODAJ MSE" action="#{mseBEAN.saveMse}" />
+	
+</h:form>
+</f:view>
+</h:body>
+
+</html>
+
+
+
+				
+					

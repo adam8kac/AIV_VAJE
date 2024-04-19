@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" >
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Keep It Simple &amp; Stupid</title>
+	<h:outputStylesheet library="webjars" name="bootstrap/4.3.1/css/bootstrap.min.css" />
+</h:head>
+
+<h:body>
+	<h:outputScript library="webjars" name="bootstrap/4.3.1/js/bootstrap.min.js" />
+
+<f:view>
+<h:form>
+
+	[ <a href="#{facesContext.externalContext.applicationContextPath}/faces/all.xhtml">All</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addSkupnost.xhtml?mail=NULL"> Add Skupnost</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/editSkupnost.xhtml"> Edit Skupnost</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addOseba.xhtml?mail=NULL"> Add Oseba</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addMse.xhtml?mail=NULL"> Add MSE</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/detailsMSE.xhtml"> Details MSE</a>
+	]
+	<hr />
+
+
+
+	<h:dataTable value="#{oseba.allPeople}" var="os">
+		<h:column>
+			<h:link value="#{os.mail}" outcome="detailsOseba">
+				<f:param name="mail" value="#{os.mail}" />
+			</h:link>
+		</h:column>
+		<h:column>#{os.priimek}</h:column>
+		<h:column>#{os.ime}</h:column>
+		<h:column>
+			<h:link value="Edit" outcome="editOseba"	>
+				<f:param name="mail" value="#{os.mail}" />
+			</h:link> |
+			<h:commandLink value="Delete" actionListener="#{oseba.deletePerson(os)}"
+						   onclick="return confirm('Are you sure you want to delete OSEBA?');"/>
+
+		</h:column>
+	</h:dataTable>
+
+
+</h:form>
+</f:view>
+</h:body>
+
+</html>

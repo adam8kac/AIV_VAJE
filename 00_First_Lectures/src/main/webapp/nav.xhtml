@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Keep It Simple &amp; Stupid</title>
+	<h:outputStylesheet library="webjars" name="bootstrap/4.3.1/css/bootstrap.min.css" />
+</h:head>
+
+
+
+	[ <a href="#{facesContext.externalContext.applicationContextPath}/faces/all.xhtml">All</a> |
+<!--		<a href="#{facesContext.externalContext.applicationContextPath}/faces/edit.xhtml?email=NULL">Add new</a>-->
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addSkupnost.xhtml"> Add Skupnost</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/editSkupnost.xhtml"> Edit Skupnost</a> |
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addOseba.xhtml?mail=NULL"> Add Oseba</a> |
+<!--		<a href = "#{facesContext.externalContext.applicationContextPath}/faces/editOseba.xhtml"> Add Oseba2</a>-->
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addMse.xhtml"> Add MSE</a> |
+	<!--	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/prikazMSE.xhtml"> PRIKAZ MSE</a>-->
+	<a href = "#{facesContext.externalContext.applicationContextPath}/faces/detailsMSE.xhtml"> Details MSE</a>
+	]
+	<hr />
+<!--	<ui:include src="nav.xhtml" />-->
+
+
+</html>
+
+
+
+

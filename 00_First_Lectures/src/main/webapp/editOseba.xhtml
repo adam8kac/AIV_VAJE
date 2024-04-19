@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" >
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Keep It Simple &amp; Stupid</title>
+	<h:outputStylesheet library="webjars" name="bootstrap/4.3.1/css/bootstrap.min.css" />
+</h:head>
+
+<h:body>
+	<h:outputScript library="webjars" name="bootstrap/4.3.1/js/bootstrap.min.js" />
+
+	<f:view>
+		<h:form>
+
+			[ <a href="#{facesContext.externalContext.applicationContextPath}/faces/all.xhtml">All</a> |
+			<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addSkupnost.xhtml?mail=NULL"> Add Skupnost</a> |
+			<a href = "#{facesContext.externalContext.applicationContextPath}/faces/editSkupnost.xhtml"> Edit Skupnost</a> |
+			<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addOseba.xhtml?mail=NULL"> Add Oseba</a> |
+			<a href = "#{facesContext.externalContext.applicationContextPath}/faces/addMse.xhtml?mail=NULL"> Add MSE</a> |
+			<a href = "#{facesContext.externalContext.applicationContextPath}/faces/detailsMSE.xhtml"> Details MSE</a>
+			]
+			<hr />
+
+
+			<f:metadata>
+				<f:viewParam name="mail" value="#{oseba.selectedEmail}" />
+			</f:metadata>
+
+			Name: <h:inputText id="n_ime" value="#{oseba.selectedPerson.ime}"/><br/>
+			Surname: <h:inputText id="n_priimek" value="#{oseba.selectedPerson.priimek}"/><br/>
+			E-mail: <h:inputText id="n_email" value="#{oseba.selectedPerson.mail}" validatorMessage="Insert valid e-mail">
+			<f:validateRequired />
+		</h:inputText> * <h:message for="n_email" style="color:red" />
+			<br/><br/>
+			<h:commandButton value="Save" action="#{oseba.savePerson}"/>
+
+		</h:form>
+	</f:view>
+</h:body>
+
+</html>
+
+
+
+
